@@ -22,7 +22,6 @@ class citfact_core extends CModule
     public $MODULE_DESCRIPTION;
     public $PARTNER_NAME;
     public $PARTNER_URI;
-    public $MODULE_PATH;
 
     /**
      * Construct object
@@ -33,7 +32,6 @@ class citfact_core extends CModule
         $this->MODULE_DESCRIPTION = Loc::getMessage('CORE_MODULE_DESCRIPTION');
         $this->PARTNER_NAME = Loc::getMessage('PARTNER_NAME');
         $this->PARTNER_URI = Loc::getMessage('PARTNER_URI');
-        $this->MODULE_PATH = $this->getModulePath();
 
         $arModuleVersion = array();
         include $this->MODULE_PATH . '/install/version.php';
