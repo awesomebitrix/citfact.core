@@ -9,7 +9,4 @@
  * file that was distributed with this source code.
  */
 
-CModule::AddAutoloadClasses('citfact.core', array(
-    'Citfact\Core\EventListener' => 'lib/EventListener.php',
-));
-
+$MESS['GLOBAL_MENU_CITFACT'] = 'ЦИТ "Факт"';

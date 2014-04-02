@@ -32,12 +32,48 @@ class citfact_core extends CModule
         $this->MODULE_DESCRIPTION = Loc::getMessage('CORE_MODULE_DESCRIPTION');
         $this->PARTNER_NAME = Loc::getMessage('PARTNER_NAME');
         $this->PARTNER_URI = Loc::getMessage('PARTNER_URI');
+        $this->MODULE_PATH = $this->getModulePath();
 
         $arModuleVersion = array();
         include $this->MODULE_PATH . '/install/version.php';
 
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
+    }
+
+    /**
+     * Return path module
+     *
+     * @return string
+     */
+    protected function getModulePath()
+    {
+        $modulePath = explode('/', __FILE__);
+        $modulePath = array_slice($modulePath, 0, array_search($this->MODULE_ID, $modulePath) + 1);
+
+        return join('/', $modulePath);
+    }
+
+    /**
+     * Return components path for install
+     *
+     * @param bool $absolute
+     * @return string
+     */
+    protected function getComponentsPath($absolute = true)
+    {
+        $documentRoot = getenv('DOCUMENT_ROOT');
+        if (strpos($this->MODULE_PATH, 'local/modules') !== false) {
+            $componentsPath = '/local/components';
+        } else {
+            $componentsPath = '/bitrix/components';
+        }
+
+        if ($absolute) {
+            $componentsPath = sprintf('%s%s', $documentRoot, $componentsPath);
+        }
+
+        return $componentsPath;
     }
 
     /**
@@ -61,11 +97,11 @@ class citfact_core extends CModule
      */
     public function DoUninstall()
     {
-        UnRegisterModule($this->MODULE_ID);
-
         $this->UnInstallDB();
         $this->UnInstallFiles();
         $this->UnInstallEvents();
+
+        UnRegisterModule($this->MODULE_ID);
     }
 
     /**
@@ -95,6 +131,8 @@ class citfact_core extends CModule
      */
     public function InstallEvents()
     {
+        RegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+
         return true;
     }
 
@@ -106,6 +144,8 @@ class citfact_core extends CModule
      */
     public function UnInstallEvents()
     {
+        UnRegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+
         return true;
     }
 
@@ -116,6 +156,9 @@ class citfact_core extends CModule
      */
     public function InstallFiles()
     {
+        CopyDirFiles($this->MODULE_PATH . '/install/themes', getenv('DOCUMENT_ROOT') . '/bitrix/themes', true, true);
+        CopyDirFiles($this->MODULE_PATH . '/install/images', getenv('DOCUMENT_ROOT') . '/bitrix/images', true, true);
+
         return true;
     }
 
@@ -126,6 +169,9 @@ class citfact_core extends CModule
      */
     public function UnInstallFiles()
     {
+        DeleteDirFiles($this->MODULE_PATH . '/install/themes/.default', getenv('DOCUMENT_ROOT') . '/bitrix/themes/.default');
+        DeleteDirFilesEx('/bitrix/images/citfact.core/');
+
         return true;
     }
 }

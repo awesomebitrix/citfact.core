@@ -1,0 +1,24 @@
+/*
+ * This file is part of the Studio Fact package.
+ *
+ * (c) Kulichkin Denis (onEXHovia) <onexhovia@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.adm-citfact .adm-main-menu-item-icon {
+    background-image: url('/bitrix/images/citfact.core/citfact_global_logo.png');
+    background-position: center 10px;
+    height: 49px;
+}
+
+.adm-citfact:hover .adm-main-menu-item-icon {
+    background-position: center -44px;
+    height: 49px;
+}
+
+.adm-main-menu-item-active.adm-citfact .adm-main-menu-item-icon {
+    background-position: center -44px;
+    height: 49px;
+}
