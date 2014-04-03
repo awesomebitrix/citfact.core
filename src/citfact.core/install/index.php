@@ -10,18 +10,51 @@
  */
 
 use Bitrix\Main\Localization\Loc;
+use Bitrix\Main\Application;
 
 Loc::loadMessages(__FILE__);
 
 class citfact_core extends CModule
 {
+    /**
+     * @var string
+     */
     public $MODULE_ID = 'citfact.core';
+
+    /**
+     * @var string
+     */
     public $MODULE_VERSION;
+
+    /**
+     * @var string
+     */
     public $MODULE_VERSION_DATE;
+
+    /**
+     * @var string
+     */
     public $MODULE_NAME;
+
+    /**
+     * @var string
+     */
     public $MODULE_DESCRIPTION;
+
+    /**
+     * @var string
+     */
     public $PARTNER_NAME;
+
+    /**
+     * @var string
+     */
     public $PARTNER_URI;
+
+    /**
+     * @var Bitrix\Main\DB\ConnectionPool
+     */
+    private $connection;
 
     /**
      * Construct object
@@ -39,6 +72,8 @@ class citfact_core extends CModule
 
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
+
+        $this->connection = Application::getConnection();
     }
 
     /**
@@ -111,6 +146,12 @@ class citfact_core extends CModule
      */
     public function InstallDB()
     {
+        $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/install.sql');
+        $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
+        if (sizeof($sqlBatchErrors) > 0) {
+            return false;
+        }
+
         return true;
     }
 
@@ -121,6 +162,12 @@ class citfact_core extends CModule
      */
     public function UnInstallDB()
     {
+        $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/uninstall.sql');
+        $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
+        if (sizeof($sqlBatchErrors) > 0) {
+            return false;
+        }
+
         return true;
     }
 
@@ -158,6 +205,7 @@ class citfact_core extends CModule
     {
         CopyDirFiles($this->MODULE_PATH . '/install/themes', getenv('DOCUMENT_ROOT') . '/bitrix/themes', true, true);
         CopyDirFiles($this->MODULE_PATH . '/install/images', getenv('DOCUMENT_ROOT') . '/bitrix/images', true, true);
+        CopyDirFiles($this->MODULE_PATH . '/install/admin', getenv('DOCUMENT_ROOT') . '/bitrix/admin', true, true);
 
         return true;
     }
@@ -170,6 +218,7 @@ class citfact_core extends CModule
     public function UnInstallFiles()
     {
         DeleteDirFiles($this->MODULE_PATH . '/install/themes/.default', getenv('DOCUMENT_ROOT') . '/bitrix/themes/.default');
+        DeleteDirFiles($this->MODULE_PATH . '/install/admin', getenv('DOCUMENT_ROOT') . '/bitrix/admin');
         DeleteDirFilesEx('/bitrix/images/citfact.core/');
 
         return true;
