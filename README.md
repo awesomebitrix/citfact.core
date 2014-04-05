@@ -12,10 +12,10 @@
 	
 	// Если bitrix >= 14, то создадим папку local/modules и переносим туда модуль
 	mkdir local && mkdir local/modules
-	mv form/src/citfact.core local/modules
+	mv core/src/citfact.core local/modules
 	
 	// Если версия < 14, переносим в пространство bitrix
-	mv form/src/citfact.core bitrix/modules
+	mv core/src/citfact.core bitrix/modules
 	
 	// Удаляем репозиторий
 	rm -rf core
