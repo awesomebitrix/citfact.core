@@ -18,7 +18,7 @@
 	mv form/src/citfact.core bitrix/modules
 	
 	// Удаляем репозиторий
-	rm -rf form
+	rm -rf core
 
 Или воспользоваться [установщиком](https://github.com/studiofact/sandbox).
 Далее в административной панели в разделе "Marketplace > Установленные решения" устанавливаем модуль.
