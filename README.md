@@ -22,3 +22,10 @@
 
 Или воспользоваться [установщиком](https://github.com/studiofact/sandbox).
 Далее в административной панели в разделе "Marketplace > Установленные решения" устанавливаем модуль.
+
+## Документация
+
+ - [Привязка к глобальному меню](https://github.com/studiofact/core/blob/master/docs/global_menu.rst)
+ - [Привязка к разделу в эрмитаже](https://github.com/studiofact/core/blob/master/docs/hermitage_menu.rst)
+ - [API](https://github.com/studiofact/core/tree/master/docs/api)
+ 	- [Пользовательские переменные](https://github.com/studiofact/core/blob/master/docs/api/user_vars.rst)
