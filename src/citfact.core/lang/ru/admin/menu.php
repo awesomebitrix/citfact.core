@@ -10,3 +10,4 @@
  */
 
 $MESS['USER_VARS_TITLE'] = 'Пользовательские переменные';
+$MESS['GENERATE_ENTITY_TITLE'] = 'Генератор сущностей';

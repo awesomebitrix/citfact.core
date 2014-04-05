@@ -48,17 +48,25 @@ class VarsTable extends Entity\DataManager
             ),
             'NAME' => array(
                 'data_type' => 'string',
+                'required' => true,
                 'title' => Loc::getMessage('VARS_ENTITY_NAME_FIELD'),
             ),
             'CODE' => array(
                 'data_type' => 'string',
+                'required' => true,
+                'title' => Loc::getMessage('VARS_ENTITY_CODE_FIELD'),
+            ),
+            'VALUE' => array(
+                'data_type' => 'string',
+                'title' => Loc::getMessage('VARS_ENTITY_VALUE_FIELD'),
             ),
             'DESCRIPTION' => array(
-                'data_type' => 'string',
+                'data_type' => 'text',
+                'title' => Loc::getMessage('VARS_ENTITY_DESCRIPTION_FIELD'),
             ),
-            'GROUP' => array(
-                'data_type' => 'VarsGroupTable',
-                'reference' => array('=this.GROUP_ID' => 'ref.ID'),
+            'GROUP_ID' => array(
+                'data_type' => 'integer',
+                'required' => true,
             ),
         );
     }

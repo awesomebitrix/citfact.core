@@ -48,10 +48,13 @@ class VarsGroupTable extends Entity\DataManager
             ),
             'NAME' => array(
                 'data_type' => 'string',
+                'required' => true,
                 'title' => Loc::getMessage('VARS_GROUP_ENTITY_NAME_FIELD'),
             ),
             'CODE' => array(
                 'data_type' => 'string',
+                'required' => true,
+                'title' => Loc::getMessage('VARS_GROUP_ENTITY_CODE_FIELD'),
             ),
         );
     }

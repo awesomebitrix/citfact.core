@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS b_citfact_uservars (
   GROUP_ID int(11) unsigned NOT NULL,
   NAME varchar(100) NOT NULL,
   CODE varchar(100) NOT NULL,
+  VALUE varchar(255) NOT NULL,
   DESCRIPTION text,
   PRIMARY KEY (ID)
 );

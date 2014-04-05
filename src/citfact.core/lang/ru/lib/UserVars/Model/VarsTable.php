@@ -10,4 +10,7 @@
  */
 
 $MESS['VARS_ENTITY_ID_FIELD'] = 'Идентификатор переменной';
-$MESS['VARS_ENTITY_NAME_FIELD'] = 'Наименование переменной';
+$MESS['VARS_ENTITY_NAME_FIELD'] = 'Наименование';
+$MESS['VARS_ENTITY_CODE_FIELD'] = 'Символьный код';
+$MESS['VARS_ENTITY_DESCRIPTION_FIELD'] = 'Описание';
+$MESS['VARS_ENTITY_VALUE_FIELD'] = 'Значение';

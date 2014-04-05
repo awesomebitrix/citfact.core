@@ -9,6 +9,5 @@
  * file that was distributed with this source code.
  */
 
-$MESS['VARS_GROUP_ENTITY_ID_FIELD'] = 'Идентификатор группы';
-$MESS['VARS_GROUP_ENTITY_NAME_FIELD'] = 'Наименования группы';
-$MESS['VARS_GROUP_ENTITY_CODE_FIELD'] = 'Символьный код';
+$MESS['USER_VARS_BACK_VAR'] = 'Вернуться к списоку переменных';
+$MESS['USER_VARS_VAR_NAME'] = 'Переменная';

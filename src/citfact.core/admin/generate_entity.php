@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
-$MESS['VARS_GROUP_ENTITY_ID_FIELD'] = 'Идентификатор группы';
-$MESS['VARS_GROUP_ENTITY_NAME_FIELD'] = 'Наименования группы';
-$MESS['VARS_GROUP_ENTITY_CODE_FIELD'] = 'Символьный код';
+require_once getenv('DOCUMENT_ROOT') . '/bitrix/modules/main/include/prolog_admin_before.php';
+
+use Bitrix\Main\Localization\Loc;
+
+Loc::loadMessages(__FILE__);

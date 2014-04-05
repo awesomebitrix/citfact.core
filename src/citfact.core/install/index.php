@@ -75,7 +75,6 @@ class citfact_core extends CModule
 
         $this->connection = Application::getConnection();
     }
-
     /**
      * Return path module
      *
@@ -116,13 +115,13 @@ class citfact_core extends CModule
      *
      * @return void
      */
-    public function DoInstall()
+    public function doInstall()
     {
         RegisterModule($this->MODULE_ID);
 
-        $this->InstallFiles();
-        $this->InstallDB();
-        $this->InstallEvents();
+        $this->installFiles();
+        $this->installDB();
+        $this->installEvents();
     }
 
     /**
@@ -130,11 +129,11 @@ class citfact_core extends CModule
      *
      * @return void
      */
-    public function DoUninstall()
+    public function doUninstall()
     {
-        $this->UnInstallDB();
-        $this->UnInstallFiles();
-        $this->UnInstallEvents();
+        $this->unInstallDB();
+        $this->unInstallFiles();
+        $this->unInstallEvents();
 
         UnRegisterModule($this->MODULE_ID);
     }
@@ -144,11 +143,12 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function InstallDB()
+    public function installDB()
     {
         $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/install.sql');
         $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
         if (sizeof($sqlBatchErrors) > 0) {
+            exit(print_r($sqlBatchErrors));
             return false;
         }
 
@@ -160,11 +160,12 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function UnInstallDB()
+    public function unInstallDB()
     {
         $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/uninstall.sql');
         $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
         if (sizeof($sqlBatchErrors) > 0) {
+            exit(print_r($sqlBatchErrors));
             return false;
         }
 
@@ -176,7 +177,7 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function InstallEvents()
+    public function installEvents()
     {
         RegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
 
@@ -189,7 +190,7 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function UnInstallEvents()
+    public function unInstallEvents()
     {
         UnRegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
 
@@ -201,7 +202,7 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function InstallFiles()
+    public function installFiles()
     {
         CopyDirFiles($this->MODULE_PATH . '/install/themes', getenv('DOCUMENT_ROOT') . '/bitrix/themes', true, true);
         CopyDirFiles($this->MODULE_PATH . '/install/images', getenv('DOCUMENT_ROOT') . '/bitrix/images', true, true);
@@ -215,7 +216,7 @@ class citfact_core extends CModule
      *
      * @return bool
      */
-    public function UnInstallFiles()
+    public function unInstallFiles()
     {
         DeleteDirFiles($this->MODULE_PATH . '/install/themes/.default', getenv('DOCUMENT_ROOT') . '/bitrix/themes/.default');
         DeleteDirFiles($this->MODULE_PATH . '/install/admin', getenv('DOCUMENT_ROOT') . '/bitrix/admin');

@@ -36,6 +36,17 @@ $request = $application
     ->getContext()
     ->getRequest();
 
+if ($request->getQuery('GROUP_ID')) {
+    $varsGroup = new UserVars\VarsGroup();
+    $dataGroup = $varsGroup
+        ->findOneById($request->getQuery('GROUP_ID'))
+        ->fetch();
+}
+
+if (!isset($dataGroup) || empty($dataGroup)) {
+    LocalRedirect(sprintf('user_vars.php?lang=%s', LANGUAGE_ID));
+}
+
 $includePath = array(
     'prolog' => '/bitrix/modules/main/include/prolog_admin_after.php',
     'prolog_js' => '/bitrix/modules/main/include/prolog_admin_js.php',
@@ -44,19 +55,29 @@ $includePath = array(
 );
 
 $contextMenu[] = array(
-    'TEXT' => Loc::getMessage('USER_VARS_ADD_GROUP'),
-    'TITLE' => Loc::getMessage('USER_VARS_ADD_GROUP'),
-    'LINK' => 'user_vars_group_edit.php?lang=' . LANGUAGE_ID,
+    'TEXT' => Loc::getMessage('USER_VARS_ADD'),
+    'TITLE' => Loc::getMessage('USER_VARS_ADD'),
+    'LINK' => 'user_vars_edit.php?GROUP_ID='. $dataGroup['ID'] .'&lang=' . LANGUAGE_ID,
     'ICON' => 'btn_new',
 );
 
-$headers = array(
-    array('id' => 'ID', 'content' => 'ID', 'sort' => 'ID', 'default' => true),
-    array('id' => 'NAME', 'content' => Loc::getMessage('USER_VARS_TABLE_NAME'), 'sort' => 'NAME', 'default' => true),
-    array('id' => 'CODE', 'content' => Loc::getMessage('USER_VARS_TABLE_CODE'), 'sort' => 'CODE', 'default' => true)
+$contextMenu[] = array(
+    'TEXT' => Loc::getMessage('USER_VARS_EDIT_GROUP'),
+    'TITLE' => Loc::getMessage('USER_VARS_EDIT_GROUP'),
+    'LINK' => 'user_vars_group_edit.php?ID='. $dataGroup['ID'] .'&lang=' . LANGUAGE_ID,
+    'ICON' => 'btn_edit',
 );
 
-$tableId = 'tbl_user_vars';
+$varsMap = Model\VarsTable::getMap();
+$headers = array(
+    array('id' => 'ID', 'content' => 'ID', 'sort' => 'ID', 'default' => true),
+    array('id' => 'NAME', 'content' => $varsMap['NAME']['title'], 'sort' => 'NAME', 'default' => true),
+    array('id' => 'CODE', 'content' => $varsMap['CODE']['title'], 'sort' => 'CODE', 'default' => true),
+    array('id' => 'VALUE', 'content' => $varsMap['VALUE']['title'], 'sort' => 'VALUE', 'default' => true),
+    array('id' => 'DESCRIPTION', 'content' => $varsMap['DESCRIPTION']['title'], 'sort' => 'DESCRIPTION', 'default' => true),
+);
+
+$tableId = 'tbl_user_vars_list';
 $adminSort = new CAdminSorting($tableId, 'NAME', 'asc');
 $adminList = new CAdminList($tableId, $adminSort);
 $adminList->addHeaders($headers);
@@ -65,8 +86,10 @@ if ($request->getQuery('mode') != 'list') {
     $context = new CAdminContextMenu($contextMenu);
 }
 
-$queryBuilder = new Entity\Query(Model\VarsGroupTable::getEntity());
-$queryBuilder->setSelect(array('ID', 'NAME', 'CODE'));
+$queryBuilder = new Entity\Query(Model\VarsTable::getEntity());
+$queryBuilder
+    ->setSelect(array('ID', 'NAME', 'CODE', 'DESCRIPTION', 'VALUE'))
+    ->setFilter(array('GROUP_ID' => $dataGroup['ID']));
 
 $sortBy = ($request->getQuery('by')) ? strtoupper($request->getQuery('by')) : 'ID';
 $sortOrder = ($request->getQuery('order')) ?: 'asc';
@@ -81,22 +104,16 @@ while ($item = $resultData->fetch()) {
     $actions = array();
 
     $actions[] = array(
-        'ICON' => 'list',
-        'TEXT' => Loc::getMessage('USER_VARS_ACTION_LIST'),
-        'ACTION' => $adminList->actionRedirect('user_vars_list.php?lang=' . LANGUAGE_ID . '&GROUP_ID=' . $item['ID']),
-    );
-
-    $actions[] = array(
         'ICON' => 'edit',
-        'TEXT' => Loc::GetMessage('USER_VARS_ACTION_EDIT_GROUP'),
-        'ACTION' => $adminList->actionRedirect('user_vars_group_edit.php?ID=' . $item['ID'])
+        'TEXT' => Loc::GetMessage('USER_VARS_ACTION_EDIT_VAR'),
+        'ACTION' => $adminList->actionRedirect('user_vars_edit.php?ID=' . $item['ID'] .'&GROUP_ID='. $dataGroup['ID'])
     );
 
     $actions[] = array(
         'ICON' => 'delete',
-        'TEXT' => Loc::getMessage('USER_VARS_ACTION_DELETE_GROUP'),
-        'ACTION' => "if(confirm('" . Loc::getMessage('USER_VARS_DELETE_GROUP_CONFIRM') . "')) " .
-            $adminList->actionRedirect('user_vars_group_edit.php?action=delete&ID=' . $item['ID'] . '&' . bitrix_sessid_get())
+        'TEXT' => Loc::getMessage('USER_VARS_ACTION_DELETE_VAR'),
+        'ACTION' => "if(confirm('" . Loc::getMessage('USER_VARS_DELETE_VAR_CONFIRM') . "')) " .
+            $adminList->actionRedirect('user_vars_edit.php?action=delete&ID=' . $item['ID'] . '&GROUP_ID='. $dataGroup['ID'] . '&' . bitrix_sessid_get())
     );
 
     $row->addActions($actions);
