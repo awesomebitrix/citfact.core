@@ -52,3 +52,16 @@
     ->setLimit(1);
     
   $result = $queryBuilder->exec()->fetch();
+  
+Удаление и обновление, также выполняется через модель
+
+.. code-block:: php
+
+  use Citfact\Core\UserVars\Model;
+  
+  // Удаляем переменную с ID = 1
+  Model\VarsTable::delete(1);
+  
+  // Обновляем наименование у группы
+  Model\VarsGroupTable::update(1, array('NAME' => 'New name'));
+  
