@@ -1,8 +1,14 @@
 Главный модуль
 ===
 
-Содержит вспомогательные библиотеки и компоненты
+Содержит вспомогательные библиотеки и компоненты.
+Ознакомьтесь с [документацией](https://github.com/studiofact/core/blob/master/docs/) для получения дополнительной информации.
 
+## Требования:
+
+ - PHP версия >= 5.3.3
+ - Bitrix версия >= 14
+ 
 ## Установка:
 	// Переходим в корень проекта
 	cd /path/to/project/
@@ -14,7 +20,7 @@
 	mkdir local && mkdir local/modules
 	mv core/src/citfact.core local/modules
 	
-	// Если версия < 14, переносим в пространство bitrix
+	// Или переносим в пространство bitrix
 	mv core/src/citfact.core bitrix/modules
 	
 	// Удаляем репозиторий
