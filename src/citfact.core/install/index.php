@@ -75,6 +75,7 @@ class citfact_core extends CModule
 
         $this->connection = Application::getConnection();
     }
+
     /**
      * Return path module
      *
@@ -148,7 +149,6 @@ class citfact_core extends CModule
         $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/install.sql');
         $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
         if (sizeof($sqlBatchErrors) > 0) {
-            exit(print_r($sqlBatchErrors));
             return false;
         }
 
@@ -165,7 +165,6 @@ class citfact_core extends CModule
         $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/uninstall.sql');
         $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
         if (sizeof($sqlBatchErrors) > 0) {
-            exit(print_r($sqlBatchErrors));
             return false;
         }
 
