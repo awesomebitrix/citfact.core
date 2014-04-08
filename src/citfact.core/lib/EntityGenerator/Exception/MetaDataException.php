@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\Core\EntityGenerator\MetaData;
+namespace Citfact\Core\EntityGenerator\Exception;
 
-class NativeData extends BaseData
+class MetaDataException extends \RuntimeException
 {
 
 }

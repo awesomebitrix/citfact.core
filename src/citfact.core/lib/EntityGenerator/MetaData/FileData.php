@@ -11,6 +11,28 @@
 
 namespace Citfact\Core\EntityGenerator\MetaData;
 
+use Citfact\Core\EntityGenerator\Exception;
+
 class FileData extends BaseData
 {
+    /**
+     * Construct object
+     *
+     * @param string $fileTarget
+     */
+    public function __construct($fileTarget)
+    {
+        $this->initFileData($fileTarget);
+    }
+
+    /**
+     * @param string $fileTarget
+     * @throws \Citfact\Core\EntityGenerator\Exception\MetaDataException
+     */
+    private function initFileData($fileTarget)
+    {
+        if (!file_exists($fileTarget)) {
+            throw new Exception\MetaDataException(sprintf('Not exists file "%s"', $fileTarget));
+        }
+    }
 }

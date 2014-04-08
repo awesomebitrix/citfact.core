@@ -15,5 +15,13 @@ CModule::AddAutoloadClasses('citfact.core', array(
     'Citfact\Core\UserVars\VarsGroup' => 'lib/UserVars/VarsGroup.php',
     'Citfact\Core\UserVars\Model\VarsTable' => 'lib/UserVars/Model/VarsTable.php',
     'Citfact\Core\UserVars\Model\VarsGroupTable' => 'lib/UserVars/Model/VarsGroupTable.php',
+    'Citfact\Core\EntityGenerator\Generator' => 'lib/EntityGenerator/Generator.php',
+    'Citfact\Core\EntityGenerator\Exception\MetaDataException' => 'lib/EntityGenerator/Exception/MetaDataException.php',
+    'Citfact\Core\EntityGenerator\Model\EntityTemplateTable' => 'lib/EntityGenerator/Model/EntityTemplateTable.php',
+    'Citfact\Core\EntityGenerator\MetaData\TableData' => 'lib/EntityGenerator/MetaData/TableData.php',
+    'Citfact\Core\EntityGenerator\MetaData\TemplateData' => 'lib/EntityGenerator/MetaData/TemplateData.php',
+    'Citfact\Core\EntityGenerator\MetaData\FileData' => 'lib/EntityGenerator/MetaData/FileData.php',
+    'Citfact\Core\EntityGenerator\MetaData\NativeData' => 'lib/EntityGenerator/MetaData/FileData.php',
+    'Citfact\Core\EntityGenerator\MetaData\BaseData' => 'lib/EntityGenerator/MetaData/BaseData.php',
 ));
 
