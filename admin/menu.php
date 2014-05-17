@@ -52,18 +52,5 @@ $menuList[] = array(
     'items' => $varsGroupList,
 );
 
-$menuList[] = array(
-    'parent_menu' => 'global_menu_citfact',
-    'section' => 'generate_entity',
-    'sort' => 200,
-    'text' => Loc::getMessage('GENERATE_ENTITY_TITLE'),
-    'url' => 'generate_entity.php?lang='.LANGUAGE_ID,
-    'icon' => 'generate_entity_menu_icon',
-    'page_icon' => 'generate_entity_page_icon',
-    'more_url' => array(),
-    'items_id' => 'generate_entity',
-    'items' => array(),
-);
-
 return $menuList;
 
