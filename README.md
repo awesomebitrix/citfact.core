@@ -20,10 +20,12 @@ git clone https://github.com/studiofact/citfact.core.git
 
 # Если bitrix >= 14, то создадим папку local/modules и переносим туда модуль
 mkdir local && mkdir local/modules
-mv citfact.core local/modules
+cp -rf citfact.core local/modules
 
 # Или переносим в пространство bitrix
-mv citfact.core bitrix/modules
+cp -rf citfact.core bitrix/modules
+
+rm -rf citfact.core
 ```
 
 Или воспользоваться [установщиком](https://github.com/studiofact/sandbox).
