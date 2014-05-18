@@ -1,6 +1,6 @@
 {
     "name": "citfact/core",
-    "type": "library",
+    "type": "package",
     "description": "Core module",
     "keywords": ["core", "citfact"],
     "homepage": "https://github.com/studiofact/citfact.core",
@@ -21,8 +21,9 @@
         }
     },
     "extra": {
+        "installer-name": "citfact.core",
         "installer-paths": {
-            "local/modules/{$name}": ["citfact/core"]
+            "local/modules/{$name}/": ["citfact/core"]
         }
     }
 }
