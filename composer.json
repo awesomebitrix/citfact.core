@@ -20,7 +20,9 @@
             "Citfact\\Core\\": "lib/"
         }
     },
-    "config": {
-        "vendor-dir": "local/modules"
+    "extra": {
+        "installer-paths": {
+            "local/modules/{$name}": ["citfact/core"]
+        }
     }
 }
