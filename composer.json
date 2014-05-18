@@ -21,9 +21,6 @@
         }
     },
     "extra": {
-        "installer-name": "citfact.core",
-        "installer-paths": {
-            "local/modules/{$name}/": ["type:bitrix-module"]
-        }
+        "installer-name": "citfact.core"
     }
 }
