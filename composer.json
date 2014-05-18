@@ -1,6 +1,6 @@
 {
     "name": "citfact/core",
-    "type": "package",
+    "type": "bitrix-module",
     "description": "Core module",
     "keywords": ["core", "citfact"],
     "homepage": "https://github.com/studiofact/citfact.core",
@@ -23,7 +23,7 @@
     "extra": {
         "installer-name": "citfact.core",
         "installer-paths": {
-            "local/modules/{$name}/": ["citfact/core"]
+            "local/modules/{$name}/": ["type:bitrix-module"]
         }
     }
 }
