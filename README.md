@@ -35,5 +35,3 @@ rm -rf citfact.core
 
  - [Привязка к глобальному меню](https://github.com/studiofact/citfact.core/blob/master/docs/global_menu.rst)
  - [Привязка к разделу в эрмитаже](https://github.com/studiofact/citfact.core/blob/master/docs/hermitage_menu.rst)
- - [API](https://github.com/studiofact/citfact.core/tree/master/docs/api)
- 	- [Пользовательские переменные](https://github.com/studiofact/citfact.core/blob/master/docs/api/user_vars.rst)
