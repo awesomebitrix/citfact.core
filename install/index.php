@@ -10,7 +10,7 @@
  */
 
 use Bitrix\Main\Localization\Loc;
-use Bitrix\Main\Application;
+use Bitrix\Main\EventManager;
 
 Loc::loadMessages(__FILE__);
 
@@ -52,9 +52,9 @@ class citfact_core extends CModule
     public $PARTNER_URI;
 
     /**
-     * @var Bitrix\Main\DB\ConnectionPool
+     * @var \Bitrix\Main\EventManager
      */
-    private $connection;
+    private $eventManager;
 
     /**
      * Construct object
@@ -73,7 +73,7 @@ class citfact_core extends CModule
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
 
-        $this->connection = Application::getConnection();
+        $this->eventManager = EventManager::getInstance();
     }
 
     /**
@@ -146,12 +146,6 @@ class citfact_core extends CModule
      */
     public function installDB()
     {
-        $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/install.sql');
-        $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
-        if (sizeof($sqlBatchErrors) > 0) {
-            return false;
-        }
-
         return true;
     }
 
@@ -162,12 +156,6 @@ class citfact_core extends CModule
      */
     public function unInstallDB()
     {
-        $sqlBatch = file_get_contents($this->MODULE_PATH . '/install/db/uninstall.sql');
-        $sqlBatchErrors = $this->connection->executeSqlBatch($sqlBatch);
-        if (sizeof($sqlBatchErrors) > 0) {
-            return false;
-        }
-
         return true;
     }
 
@@ -178,7 +166,7 @@ class citfact_core extends CModule
      */
     public function installEvents()
     {
-        RegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+        $this->eventManager->registerEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
 
         return true;
     }
@@ -191,7 +179,7 @@ class citfact_core extends CModule
      */
     public function unInstallEvents()
     {
-        UnRegisterModuleDependences('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+        $this->eventManager->unRegisterEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
 
         return true;
     }

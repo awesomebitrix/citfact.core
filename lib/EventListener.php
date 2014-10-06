@@ -24,7 +24,7 @@ class EventListener
      * @param array $moduleMenu
      * @return mixed
      */
-    public function adminGlobalMenu($globalMenu, $moduleMenu)
+    public static function adminGlobalMenu($globalMenu, $moduleMenu)
     {
         /** @global CMain $APPLICATION */
         global $APPLICATION;
