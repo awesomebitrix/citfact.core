@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.statistic" class="CStatistics"/>
+        <service id="bx.statistic.adv" class="CAdv"/>
+        <service id="bx.statistic.auto_detect" class="CAutoDetect"/>
+        <service id="bx.statistic.country" class="CCountry"/>
+        <service id="bx.statistic.guest" class="CGuest"/>
+        <service id="bx.statistic.hit" class="CHit"/>
+        <service id="bx.statistic.page" class="CPage"/>
+        <service id="bx.statistic.path" class="CPath"/>
+        <service id="bx.statistic.phrase" class="CPhrase"/>
+        <service id="bx.statistic.referer" class="CReferer"/>
+        <service id="bx.statistic.searcher" class="CSearcher"/>
+        <service id="bx.statistic.searcher_hit" class="CSearcherHit"/>
+        <service id="bx.statistic.session" class="CSession"/>
+        <service id="bx.statistic.event" class="CStatEvent"/>
+        <service id="bx.statistic.event_type" class="CStatEventType"/>
+        <service id="bx.statistic.stop_list" class="CStopList"/>
+        <service id="bx.statistic.traffic" class="CTraffic"/>
+        <service id="bx.statistic.user_online" class="CUserOnline"/>
+    </services>
+</container>

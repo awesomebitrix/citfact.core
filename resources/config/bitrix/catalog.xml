@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.catalog" class="CCatalog"/>
+        <service id="bx.catalog.discount" class="CCatalogDiscount"/>
+        <service id="bx.catalog.discount_coupon" class="CCatalogDiscountCoupon"/>
+        <service id="bx.catalog.export" class="CCatalogExport"/>
+        <service id="bx.catalog.group" class="CCatalogGroup"/>
+        <service id="bx.catalog.iblock_parameters" class="CCatalogIBlockParameters"/>
+        <service id="bx.catalog.import" class="CCatalogImport"/>
+        <service id="bx.catalog.product" class="CCatalogProduct"/>
+        <service id="bx.catalog.product_groups" class="CCatalogProductGroups"/>
+        <service id="bx.catalog.sku" class="CCatalogSKU"/>
+        <service id="bx.catalog.store" class="CCatalogStore"/>
+        <service id="bx.catalog.store_product" class="CCatalogStoreProduct"/>
+        <service id="bx.catalog.vat" class="CCatalogVat"/>
+        <service id="bx.catalog.extra" class="CExtra"/>
+        <service id="bx.catalog.price" class="CPrice"/>
+    </services>
+</container>

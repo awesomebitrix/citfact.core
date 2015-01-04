@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.subscribe" class="CSubscription"/>
+        <service id="bx.subscribe.posting" class="CPosting"/>
+        <service id="bx.subscribe.posting_template" class="CPostingTemplate"/>
+        <service id="bx.subscribe.rubric" class="CRubric"/>
+    </services>
+</container>

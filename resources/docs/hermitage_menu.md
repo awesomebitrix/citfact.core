@@ -3,8 +3,7 @@
 
 Для отображения компонента в эрмитаже, приветствуется привязка к идентификатору раздела ``citfact``
 
-.. code-block:: php
-
+``` php
   // .description.php
   
   $arComponentDescription = array(
@@ -17,3 +16,4 @@
         'NAME' => 'ЦИТ "Факт"',
     ),
   );
+```

@@ -9,7 +9,12 @@
  * file that was distributed with this source code.
  */
 
-CModule::AddAutoloadClasses('citfact.core', array(
-    'Citfact\Core\EventListener' => 'lib/EventListener.php',
-));
+use Symfony\Component\ClassLoader\UniversalClassLoader;
 
+if (file_exists($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php')) {
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+}
+
+$loader = new UniversalClassLoader();
+$loader->register();
+$loader->registerNamespace('Citfact\\Core', __DIR__.'/src');

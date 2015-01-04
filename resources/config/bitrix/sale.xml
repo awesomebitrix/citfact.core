@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.sale.auxiliary" class="CSaleAuxiliary"/>
+        <service id="bx.sale.basket" class="CSaleBasket"/>
+        <service id="bx.sale.delivery" class="CSaleDelivery"/>
+        <service id="bx.sale.delivery_handler" class="CSaleDeliveryHandler"/>
+        <service id="bx.sale.discount" class="CSaleDiscount"/>
+        <service id="bx.sale.location" class="CSaleLocation"/>
+        <service id="bx.sale.location_group" class="CSaleLocationGroup"/>
+        <service id="bx.sale.order" class="CSaleOrder"/>
+        <service id="bx.sale.order_props" class="CSaleOrderProps"/>
+        <service id="bx.sale.order_props_group" class="CSaleOrderPropsGroup"/>
+        <service id="bx.sale.order_props_value" class="CSaleOrderPropsValue"/>
+        <service id="bx.sale.order_props_variant" class="CSaleOrderPropsVariant"/>
+        <service id="bx.sale.order_tax" class="CSaleOrderTax"/>
+        <service id="bx.sale.order_user_props" class="CSaleOrderUserProps"/>
+        <service id="bx.sale.order_user_props_value" class="CSaleOrderUserPropsValue"/>
+        <service id="bx.sale.pay_system" class="CSalePaySystem"/>
+        <service id="bx.sale.pay_system_action" class="CSalePaySystemAction"/>
+        <service id="bx.sale.person_type" class="CSalePersonType"/>
+        <service id="bx.sale.recurring" class="CSaleRecurring"/>
+        <service id="bx.sale.status" class="CSaleStatus"/>
+        <service id="bx.sale.tax" class="CSaleTax"/>
+        <service id="bx.sale.tax_rate" class="CSaleTaxRate"/>
+        <service id="bx.sale.user_account" class="CSaleUserAccount"/>
+        <service id="bx.sale.user_cards" class="CSaleUserCards"/>
+        <service id="bx.sale.user_transact" class="CSaleUserTransact"/>
+    </services>
+</container>

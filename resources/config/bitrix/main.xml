@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.main" class="CMain"/>
+        <service id="bx.main.database" class="CDatabase"/>
+        <service id="bx.main.dbresult" class="CDBResult"/>
+        <service id="bx.main.agent" class="CAgent"/>
+        <service id="bx.main.event" class="CEvent"/>
+        <service id="bx.main.event_message" class="CEventMessage"/>
+        <service id="bx.main.event_type" class="CEventType"/>
+        <service id="bx.main.file" class="CFile"/>
+        <service id="bx.main.user" class="CUser"/>
+        <service id="bx.main.group" class="CGroup"/>
+        <service id="bx.main.site" class="CSite"/>
+        <service id="bx.main.language" class="CLanguage"/>
+        <service id="bx.main.main_page" class="CMainPage"/>
+        <service id="bx.main.menu" class="CMenu"/>
+        <service id="bx.main.module" class="CModule"/>
+        <service id="bx.main.option" class="COption"/>
+        <service id="bx.main.page_option" class="CPageOption"/>
+        <service id="bx.main.page_cache" class="CPageCache"/>
+        <service id="bx.main.php_cache" class="CPHPCache"/>
+        <service id="bx.main.admin_file_dialog" class="CAdminFileDialog"/>
+        <service id="bx.main.component_engine" class="CComponentEngine"/>
+        <service id="bx.main.disk_quota" class="CDiskQuota"/>
+        <service id="bx.main.user_type_entity" class="CUserTypeEntity"/>
+        <service id="bx.main.user_field_enum" class="CUserFieldEnum"/>
+        <service id="bx.main.admin_page" class="CAdminPage"/>
+        <service id="bx.main.application_exception" class="CApplicationException"/>
+        <service id="bx.main.component" class="CbxComponent"/>
+        <service id="bx.main.component_template" class="CbxComponentTemplate"/>
+        <service id="bx.main.ratings" class="CRatings"/>
+        <service id="bx.main.user_counter" class="CUserCounter"/>
+        <service id="bx.main.user_counter" class="CUserCounter"/>
+        <service id="bx.main.sanitizer" class="CBXSanitizer"/>
+        <service id="bx.main.admin_notify" class="CAdminNotify"/>
+        <service id="bx.main.virtual_io" class="CBXVirtualIo"/>
+        <service id="bx.main.virtual_file" class="CBXVirtualFile"/>
+        <service id="bx.main.virtual_directory" class="CBXVirtualDirectory"/>
+        <service id="bx.main.smile" class="CSmile"/>
+        <service id="bx.main.smile_set" class="CSmileSet"/>
+    </services>
+</container>

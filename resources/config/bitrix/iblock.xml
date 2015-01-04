@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.iblock" class="CIBlock"/>
+        <service id="bx.iblock.cml_export" class="CIBlockCMLExport"/>
+        <service id="bx.iblock.cml_import" class="CIBlockCMLImport"/>
+        <service id="bx.iblock.element" class="CIBlockElement"/>
+        <service id="bx.iblock.fortmat_properties" class="CIBlockFormatProperties"/>
+        <service id="bx.iblock.price_tools" class="CIBlockPriceTools"/>
+        <service id="bx.iblock.property" class="CIBlockProperty"/>
+        <service id="bx.iblock.property_enum" class="CIBlockPropertyEnum"/>
+        <service id="bx.iblock.result" class="CIBlockResult"/>
+        <service id="bx.iblock.rss" class="CIBlockRSS"/>
+        <service id="bx.iblock.section" class="CIBlockSection"/>
+        <service id="bx.iblock.type" class="CIBlockType"/>
+        <service id="bx.iblock.xml_file" class="CIBlockXMLFile"/>
+    </services>
+</container>

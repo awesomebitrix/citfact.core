@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.pull.stack" class="CPullStack"/>
+        <service id="bx.pull.watch" class="CPullWatch"/>
+        <service id="bx.pull.options" class="CPullOptions"/>
+        <service id="bx.pull.manager" class="CPushManager"/>
+    </services>
+</container>

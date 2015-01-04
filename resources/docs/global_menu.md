@@ -3,8 +3,7 @@
 
 Для привязки настроек модуля или компонента приопределен идентификатор меню ``global_menu_citfact``
 
-.. code-block:: php
-
+``` php
   $menuList[] = array(
       'parent_menu' => 'global_menu_citfact',
       'section' => 'you_id',
@@ -19,12 +18,12 @@
   );
   
   return $menuList;
-  
+```
+
 Если ваш модуль не имеет зависимостей от citfact.core то имеет смысл проверить установлен ли он в системе.
 Если не установлен, то привязать настройки к дефолтным меню.
 
-.. code-block:: php
-
+``` php
   use Bitrix\Main\Loader;
   
   $parentMenu = (Loader::includeModule('citfact.core')) ? 'global_menu_citfact' : 'global_menu_services';
@@ -34,3 +33,4 @@
   );
   
   return $menuList;
+```

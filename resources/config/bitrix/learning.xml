@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.learning.course" class="CCourse"/>
+        <service id="bx.learning.chapter" class="CChapter"/>
+        <service id="bx.learning.lesson" class="CLesson"/>
+        <service id="bx.learning.question" class="CLQuestion"/>
+        <service id="bx.learning.answer" class="CLAnswer"/>
+        <service id="bx.learning.test" class="CTest"/>
+        <service id="bx.learning.test_attempt" class="CTestAttempt"/>
+        <service id="bx.learning.test_result" class="CTestResult"/>
+        <service id="bx.learning.grade_book" class="CGradeBook"/>
+        <service id="bx.learning.certification" class="CCertification"/>
+        <service id="bx.learning.student" class="CStudent"/>
+        <service id="bx.learning.course_package" class="CCoursePackage"/>
+        <service id="bx.learning.course_import" class="CCourseImport"/>
+    </services>
+</container>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.socialnetwork.user_relations" class="CSocNetUserRelations"/>
+        <service id="bx.socialnetwork.user_perms" class="CSocNetUserPerms"/>
+        <service id="bx.socialnetwork.user_group" class="CSocNetUserToGroup"/>
+        <service id="bx.socialnetwork.user" class="CSocNetUser"/>
+        <service id="bx.socialnetwork.smile" class="CSocNetSmile"/>
+        <service id="bx.socialnetwork.messages" class="CSocNetMessages"/>
+        <service id="bx.socialnetwork.log_events" class="CSocNetLogEvents"/>
+        <service id="bx.socialnetwork.log" class="CSocNetLog"/>
+        <service id="bx.socialnetwork.group_subject" class="CSocNetGroupSubject"/>
+        <service id="bx.socialnetwork.features_perms" class="CSocNetFeaturesPerms"/>
+        <service id="bx.socialnetwork.features" class="CSocNetFeatures"/>
+        <service id="bx.socialnetwork.group" class="CSocNetGroup"/>
+        <service id="bx.socialnetwork.tools" class="CSocNetTools"/>
+        <service id="bx.socialnetwork.text_parser" class="CSocNetTextParser"/>
+    </services>
+</container>

@@ -1,37 +1,16 @@
-Главный модуль
+Core module
 ===
 
-Содержит вспомогательные библиотеки и компоненты.
-Ознакомьтесь с [документацией](https://github.com/studiofact/citfact.core/blob/master/docs/) для получения дополнительной информации.
+Contains helper libraries and components.
 
-## Требования:
-
- - PHP версия >= 5.3.3
- - Bitrix версия >= 14
+## Dependency:
+ - PHP version >= 5.3.3
+ - 1C-Bitrix version >= 14
  
-## Установка:
+## Install:
+Simply run assuming you have installed composer.phar or composer binary:
 
 ``` bash
-# Переходим в корень проекта
-cd /path/to/project/
-
-# Клонируем репозиторий
-git clone https://github.com/studiofact/citfact.core.git
-
-# Если bitrix >= 14, то создадим папку local/modules и переносим туда модуль
-mkdir local && mkdir local/modules
-cp -rf citfact.core local/modules
-
-# Или переносим в пространство bitrix
-cp -rf citfact.core bitrix/modules
-
-rm -rf citfact.core
+$ php composer.phar require citfact/core dev-master
 ```
 
-Или воспользоваться [установщиком](https://github.com/studiofact/sandbox).
-Далее в административной панели в разделе "Marketplace > Установленные решения" устанавливаем модуль.
-
-## Документация
-
- - [Привязка к глобальному меню](https://github.com/studiofact/citfact.core/blob/master/docs/global_menu.rst)
- - [Привязка к разделу в эрмитаже](https://github.com/studiofact/citfact.core/blob/master/docs/hermitage_menu.rst)

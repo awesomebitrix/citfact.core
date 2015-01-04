@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bx.blog" class="CBlog"/>
+        <service id="bx.blog.candidate" class="CBlogCandidate"/>
+        <service id="bx.blog.category" class="CBlogCategory"/>
+        <service id="bx.blog.comment" class="CBlogComment"/>
+        <service id="bx.blog.group" class="CBlogGroup"/>
+        <service id="bx.blog.post" class="CBlogPost"/>
+        <service id="bx.blog.site_path" class="CBlogSitePath"/>
+        <service id="bx.blog.track_back" class="CBlogTrackBack"/>
+        <service id="bx.blog.user" class="CBlogUser"/>
+        <service id="bx.blog.user_group" class="CBlogUserGroup"/>
+    </services>
+</container>
