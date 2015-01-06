@@ -63,7 +63,7 @@ class Module implements ModuleInterface
      */
     public function getNamespace()
     {
-        if (strpos($this->moduleName, self::DELIMITER_MODULE_NAME) == false) {
+        if (strpos($this->moduleName, self::DELIMITER_MODULE_NAME) === false) {
             return ucfirst($this->moduleName);
         }
 
