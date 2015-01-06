@@ -9,13 +9,12 @@
  * file that was distributed with this source code.
  */
 
-use Citfact\Core\Bootstrap;
+namespace Citfact\Core\ClassLoader;
 
-// Include composer autload
-require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-// Include bootstrap module
-require_once __DIR__.'/src/Citfact/Core/Bootstrap.php';
-
-$bootstrap = new Bootstrap();
-$bootstrap->run();
+interface ClassLoaderInterface
+{
+    /**
+     * @param string $moduleName
+     */
+    public function registerByModuleName($moduleName);
+}
