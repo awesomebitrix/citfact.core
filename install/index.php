@@ -166,7 +166,8 @@ class citfact_core extends CModule
      */
     public function installEvents()
     {
-        $this->eventManager->registerEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+        $this->eventManager->registerEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener\GlobalMenuListener', 'adminGlobalMenu');
+        $this->eventManager->registerEventHandler('main', 'OnPageStart', $this->MODULE_ID, 'Citfact\Core\EventListener\InitModuleListener', 'includeModule');
 
         return true;
     }
@@ -179,7 +180,8 @@ class citfact_core extends CModule
      */
     public function unInstallEvents()
     {
-        $this->eventManager->unRegisterEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener', 'adminGlobalMenu');
+        $this->eventManager->unRegisterEventHandler('main', 'OnBuildGlobalMenu', $this->MODULE_ID, 'Citfact\Core\EventListener\GlobalMenuListener', 'adminGlobalMenu');
+        $this->eventManager->unRegisterEventHandler('main', 'OnPageStart', $this->MODULE_ID, 'Citfact\Core\EventListener\InitModuleListener', 'includeModule');
 
         return true;
     }

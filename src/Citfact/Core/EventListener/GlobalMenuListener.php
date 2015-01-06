@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\Core;
+namespace Citfact\Core\EventListener;
 
 use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 
-class EventListener
+class GlobalMenuListener
 {
     /**
      * Add citfact section in global admin menu
