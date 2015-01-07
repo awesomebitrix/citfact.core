@@ -193,9 +193,8 @@ class citfact_core extends CModule
      */
     public function installFiles()
     {
-        CopyDirFiles($this->MODULE_PATH . '/install/themes', getenv('DOCUMENT_ROOT') . '/bitrix/themes', true, true);
-        CopyDirFiles($this->MODULE_PATH . '/install/images', getenv('DOCUMENT_ROOT') . '/bitrix/images', true, true);
-        CopyDirFiles($this->MODULE_PATH . '/install/admin', getenv('DOCUMENT_ROOT') . '/bitrix/admin', true, true);
+        CopyDirFiles($this->MODULE_PATH . '/resources/themes', getenv('DOCUMENT_ROOT') . '/bitrix/themes', true, true);
+        CopyDirFiles($this->MODULE_PATH . '/resources/images', getenv('DOCUMENT_ROOT') . '/bitrix/images', true, true);
 
         return true;
     }
@@ -207,8 +206,7 @@ class citfact_core extends CModule
      */
     public function unInstallFiles()
     {
-        DeleteDirFiles($this->MODULE_PATH . '/install/themes/.default', getenv('DOCUMENT_ROOT') . '/bitrix/themes/.default');
-        DeleteDirFiles($this->MODULE_PATH . '/install/admin', getenv('DOCUMENT_ROOT') . '/bitrix/admin');
+        DeleteDirFiles($this->MODULE_PATH . '/resources/themes/.default', getenv('DOCUMENT_ROOT') . '/bitrix/themes/.default');
         DeleteDirFilesEx('/bitrix/images/citfact.core/');
 
         return true;
