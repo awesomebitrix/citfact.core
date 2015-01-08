@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bxd7.iblock.element_table" class="Bitrix\Iblock\ElementTable"/>
+        <service id="bxd7.iblock.iblock_table" class="Bitrix\Iblock\IblockTable"/>
+        <service id="bxd7.iblock.field_table" class="Bitrix\Iblock\IblockFieldTable"/>
+        <service id="bxd7.iblock.group_table" class="Bitrix\Iblock\IblockGroupTable"/>
+        <service id="bxd7.iblock.message_table" class="Bitrix\Iblock\IblockMessageTable"/>
+        <service id="bxd7.iblock.rss_table" class="Bitrix\Iblock\IblockRssTable"/>
+        <service id="bxd7.iblock.site_table" class="Bitrix\Iblock\IblockSiteTable"/>
+        <service id="bxd7.iblock.inherited_property_table" class="Bitrix\Iblock\InheritedPropertyTable"/>
+        <service id="bxd7.iblock.property_table" class="Bitrix\Iblock\PropertyTable"/>
+        <service id="bxd7.iblock.property_enum_table" class="Bitrix\Iblock\PropertyEnumerationTable"/>
+        <service id="bxd7.iblock.section_table" class="Bitrix\Iblock\SectionTable"/>
+        <service id="bxd7.iblock.section_element_table" class="Bitrix\Iblock\SectionElementTable"/>
+        <service id="bxd7.iblock.section_property_table" class="Bitrix\Iblock\SectionPropertyTable"/>
+        <service id="bxd7.iblock.sequence_table" class="Bitrix\Iblock\SequenceTable"/>
+        <service id="bxd7.iblock.type_table" class="Bitrix\Iblock\TypeTable"/>
+        <service id="bxd7.iblock.type_lang_table" class="Bitrix\Iblock\TypeLanguageTable"/>
+    </services>
+</container>

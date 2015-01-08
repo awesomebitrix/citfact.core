@@ -41,6 +41,7 @@ class CitfactCoreExtension extends BaseExtension
         // Load catalog module services
         if ($this->isModuleInstalled('catalog')) {
             $loader->load('bitrix/catalog.xml');
+            $loader->load('bitrix_d7/catalog.xml');
         }
 
         // Load currency module services
@@ -51,6 +52,7 @@ class CitfactCoreExtension extends BaseExtension
         // Load iblock module services
         if ($this->isModuleInstalled('iblock')) {
             $loader->load('bitrix/iblock.xml');
+            $loader->load('bitrix_d7/iblock.xml');
         }
 
         // Load learning module services
