@@ -5,5 +5,6 @@
 
     <services>
         <service id="citfact.core.loader" class="Citfact\\Core\\ClassLoader\\ClassLoader"/>
+        <service id="citfact.core.filesystem" class="Citfact\\Core\\Filesystem\\Filesystem"/>
     </services>
 </container>
