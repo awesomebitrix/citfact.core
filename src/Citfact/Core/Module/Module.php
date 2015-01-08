@@ -12,6 +12,8 @@
 namespace Citfact\Core\Module;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Finder\Finder;
 use Bitrix\Main\ModuleManager;
 use Bitrix\Main\Loader;
 
@@ -110,6 +112,35 @@ class Module implements ModuleInterface
 
         if ($this->extension) {
             return $this->extension;
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function registerCommands(Application $application)
+    {
+        $modulePathCommand = $this->getModulePath();
+        $modulePathPrefix = str_replace('\\', '/', $this->getNamespace());
+
+        if (is_dir($modulePathCommand.'/src')) {
+            $modulePathCommand .= '/src/'.$modulePathPrefix.'/Command';
+        } elseif (is_dir($modulePathCommand.'/lib')) {
+            $modulePathCommand .= '/lib/'.$modulePathPrefix.'/Command';
+        } else {
+            return;
+        }
+
+        $finder = new Finder();
+        $finder->files()->name('*Command.php')->in($modulePathCommand);
+        $prefix = $this->getNamespace().'\\Command';
+
+        foreach ($finder as $file) {
+            $class = $prefix.'\\'.$file->getBasename('.php');
+            $reflection = new \ReflectionClass($class);
+            if ($reflection->isSubclassOf('Symfony\\Component\\Console\\Command\\Command') && !$reflection->isAbstract()) {
+                $application->add($reflection->newInstance());
+            }
         }
     }
 

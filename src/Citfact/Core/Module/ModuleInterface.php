@@ -12,6 +12,7 @@
 namespace Citfact\Core\Module;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\Console\Application;
 
 interface ModuleInterface
 {
@@ -43,6 +44,13 @@ interface ModuleInterface
      * @return string|null
      */
     public function getModulePath();
+
+    /**
+     * Registers Commands.
+     *
+     * @param Application $application
+     */
+    public function registerCommands(Application $application);
 
     /**
      * Return module name

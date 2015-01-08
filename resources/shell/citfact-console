@@ -18,5 +18,5 @@ define('LANG', 'ru');
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
 
-$application = new Citfact\Core\Console\Application('Citfact 1C-Bitrix console utilities', '0.0.1');
+$application = new Citfact\Core\Console\Application();
 $application->run();
