@@ -17,6 +17,14 @@ use Symfony\Component\Console\Application;
 interface ModuleInterface
 {
     /**
+     * Return store path components
+     *
+     * @param bool $absolute
+     * @return string
+     */
+    public function getComponentsPath($absolute = true);
+
+    /**
      * Check install module
      *
      * @return bool

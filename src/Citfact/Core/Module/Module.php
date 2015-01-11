@@ -42,6 +42,28 @@ class Module implements ModuleInterface
     /**
      * {@inheritdoc}
      */
+    public function getComponentsPath($absolute = true)
+    {
+        $componentsPath = '';
+        $modulePath = $this->getModulePath();
+
+        if (strpos($modulePath, Loader::BITRIX_HOLDER)) {
+            $componentsPath = Loader::BITRIX_HOLDER.'/components';
+        } elseif (strpos($modulePath, Loader::LOCAL_HOLDER)) {
+            $componentsPath = Loader::LOCAL_HOLDER.'/components';
+        }
+
+        if ($absolute) {
+            $documentRoot = Loader::getDocumentRoot();
+            $componentsPath = $documentRoot.'/'.$componentsPath;
+        }
+
+        return $componentsPath;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isInstalled()
     {
         return ModuleManager::isModuleInstalled($this->moduleName);

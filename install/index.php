@@ -11,10 +11,11 @@
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\EventManager;
+use Citfact\Core\Module\Installer;
 
 Loc::loadMessages(__FILE__);
 
-class citfact_core extends CModule
+class citfact_core extends Installer
 {
     /**
      * @var string
@@ -74,41 +75,6 @@ class citfact_core extends CModule
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
 
         $this->eventManager = EventManager::getInstance();
-    }
-
-    /**
-     * Return path module
-     *
-     * @return string
-     */
-    protected function getModulePath()
-    {
-        $modulePath = explode('/', __FILE__);
-        $modulePath = array_slice($modulePath, 0, array_search($this->MODULE_ID, $modulePath) + 1);
-
-        return join('/', $modulePath);
-    }
-
-    /**
-     * Return components path for install
-     *
-     * @param bool $absolute
-     * @return string
-     */
-    protected function getComponentsPath($absolute = true)
-    {
-        $documentRoot = getenv('DOCUMENT_ROOT');
-        if (strpos($this->MODULE_PATH, 'local/modules') !== false) {
-            $componentsPath = '/local/components';
-        } else {
-            $componentsPath = '/bitrix/components';
-        }
-
-        if ($absolute) {
-            $componentsPath = sprintf('%s%s', $documentRoot, $componentsPath);
-        }
-
-        return $componentsPath;
     }
 
     /**
