@@ -27,6 +27,36 @@ class Filesystem extends BaseFilesystem implements FilesystemInterface
     /**
      * {@inheritdoc}
      */
+    public function put($path, $contents, $lock = false)
+    {
+        return file_put_contents($path, $contents, $lock ? LOCK_EX : 0);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prepend($path, $data)
+    {
+        if ($this->exists($path)) {
+            return $this->put($path, $data.$this->get($path));
+        }
+
+        return $this->put($path, $data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFilesDirectory($directory)
+    {
+        $finder = new Finder();
+
+        return iterator_to_array($finder->files()->in($directory));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function name($path)
     {
         return pathinfo($path, PATHINFO_FILENAME);

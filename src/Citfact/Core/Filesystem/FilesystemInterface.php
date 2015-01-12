@@ -22,6 +22,25 @@ interface FilesystemInterface
     public function exists($path);
 
     /**
+     * Write the contents of a file.
+     *
+     * @param  string  $path
+     * @param  string  $contents
+     * @param  bool  $lock
+     * @return int
+     */
+    public function put($path, $contents, $lock = false);
+
+    /**
+     * Prepend to a file.
+     *
+     * @param  string  $path
+     * @param  string  $data
+     * @return int
+     */
+    public function prepend($path, $data);
+
+    /**
      * Extract the file name from a file path.
      *
      * @param  string  $path
